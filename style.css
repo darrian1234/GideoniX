@@ -1,0 +1,87 @@
+/* ==== Base Styling ==== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background: #ffffff;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  color: #333;
+}
+
+/* ==== Floating Background Elements ==== */
+.floating-bg span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 102, 0, 0.2);
+  border-radius: 50%;
+  animation: float 10s linear infinite;
+  bottom: -100px;
+}
+
+.floating-bg span:nth-child(1) { left: 25%; animation-delay: 0s; width: 25px; height: 25px; }
+.floating-bg span:nth-child(2) { left: 10%; animation-delay: 2s; width: 15px; height: 15px; }
+.floating-bg span:nth-child(3) { left: 70%; animation-delay: 4s; }
+.floating-bg span:nth-child(4) { left: 50%; animation-delay: 6s; width: 30px; height: 30px; }
+.floating-bg span:nth-child(5) { left: 85%; animation-delay: 8s; width: 20px; height: 20px; }
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
+}
+
+/* ==== Main Container ==== */
+.container {
+  text-align: center;
+  z-index: 2;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+/* ==== Logo ==== */
+.logo {
+    width: 180px;
+    margin-bottom:300px;
+}
+
+
+/* ==== Loader Animation ==== */
+.loader {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.loader .dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ff6600;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.loader .dot:nth-child(2) { animation-delay: 0.2s; }
+.loader .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+  p { font-size: 0.95rem; }
+  .notify-form input { width: 100%; }
+  .notify-form button { width: 100%; }
+}
